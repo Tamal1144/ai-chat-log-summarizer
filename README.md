@@ -50,4 +50,4 @@ Most common keywords:
 
 ## Requirements
 1.Python 3.x
-2 .No external libraries required for the basic version
+2.No external libraries required for the basic version
