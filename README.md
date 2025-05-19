@@ -13,9 +13,9 @@ A Python-based tool to read `.txt` chat logs between a User and an AI, analyze t
 - Optional: Extendable for TF-IDF-based keyword analysis
 
 ## Sample Input (chat.txt)
-User: Hello!
-AI: Hi! How can I assist you today?
-User: Can you explain what machine learning is?
+User: Hello!</br>
+AI: Hi! How can I assist you today?</br>
+User: Can you explain what machine learning is?</br>
 AI: Certainly! Machine learning is a field of AI that allows systems to learn from data.
 
 ## Sample Output
@@ -23,24 +23,24 @@ AI: Certainly! Machine learning is a field of AI that allows systems to learn fr
 
 The conversation had 4 exchanges.
 
-User messages: 2, AI messages: 2
+User messages: 2, </br>AI messages: 2
 
 The conversation mainly focused on: machine, learning, data, ai, systems.
 
 Most common keywords:
- machine: 1
- learning: 1
- data: 1
- ai: 1
- systems: 1
+ machine: 1 </br>
+ learning: 1 </br>
+ data: 1 </br>
+ ai: 1 </br>
+ systems: 1 </br>
 
  ## How to Run
-1. Clone the repository:
+1. Clone the repository: </br>
    git clone https://github.com/Tamal1144/ai-chat-log-summarizer.git </br>
    cd ai-chat-log-summarizer
 2. Make sure Python 3 is installed.
 3. Place your chat file as chat.txt in the root folder.
-4. Run the summarizer:
+4. Run the summarizer: </br>
     python chat_summarizer.py
 
 ## Folder Structure
