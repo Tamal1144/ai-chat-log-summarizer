@@ -37,15 +37,27 @@ def parse_chat_log(file_path):
 
     return user_messages, ai_messages
 
+def generate_statistics(user_messages, ai_messages):
+    user_count = len(user_messages)
+    ai_count = len(ai_messages)
+    total_count = user_count + ai_count
+
+    print(f"\nTotal Messages: {total_count}")
+    print(f"User Messages: {user_count}")
+    print(f"AI Messages: {ai_count}")
+
+
 # Main execution
 if __name__ == "__main__":
     chat_file = "chat.txt"  # Make sure this file exists in your current directory
-    user_msgs, ai_msgs = parse_chat_log(chat_file)
+    user_messages, ai_messages = parse_chat_log(chat_file)
 
     print("\nUser Messages:")
-    for msg in user_msgs[:3]:  # Show first 3 user messages
+    for msg in user_messages[:3]:  # Show first 3 user messages
         print("- " + msg)
 
     print("\nAI Messages:")
-    for msg in ai_msgs[:3]:  # Show first 3 AI messages
+    for msg in ai_messages[:3]:  # Show first 3 AI messages
         print("- " + msg)
+
+    generate_statistics(user_messages, ai_messages)
