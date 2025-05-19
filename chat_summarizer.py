@@ -1,3 +1,13 @@
+import string
+from collections import Counter
+#Add stop words manually
+STOP_WORDS = {
+    "the", "is", "in", "and", "to", "a", "of", "that", "it", "this",
+    "for", "on", "with", "as", "was", "at", "by", "an", "be", "are",
+    "i","can","hi","hello","How","you","What","me","my","your","we","our","us",
+    "he","she","they","them","his","her","their","its","there","where"
+}
+
 def parse_chat_log(file_path):
     user_messages = []
     ai_messages = []
@@ -37,6 +47,7 @@ def parse_chat_log(file_path):
 
     return user_messages, ai_messages
 
+
 def generate_statistics(user_messages, ai_messages):
     user_count = len(user_messages)
     ai_count = len(ai_messages)
@@ -45,6 +56,16 @@ def generate_statistics(user_messages, ai_messages):
     print(f"\nTotal Messages: {total_count}")
     print(f"User Messages: {user_count}")
     print(f"AI Messages: {ai_count}")
+
+def extract_keywords(messages, top_n=5):
+    words = []
+    for message in messages:
+        message = message.lower().translate(str.maketrans('', '', string.punctuation))
+        words.extend(message.split())
+    filtered_words = [word for word in words if word not in STOP_WORDS]
+    frequency = Counter(filtered_words)
+    most_common = frequency.most_common(top_n)  
+    return most_common
 
 
 # Main execution
@@ -61,3 +82,11 @@ if __name__ == "__main__":
         print("- " + msg)
 
     generate_statistics(user_messages, ai_messages)
+
+    print("\n===== Keyword Analysis =====")
+    all_messages = user_messages + ai_messages
+    top_keywords = extract_keywords(all_messages)
+    print("\nMost Common Keywords in All Messages:")
+    user_keywords = extract_keywords(user_messages)    
+    for word, count in top_keywords:
+        print(f"{word}: {count}")  
