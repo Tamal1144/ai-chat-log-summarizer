@@ -51,3 +51,13 @@ Most common keywords:
 ## Requirements
 1.Python 3.x </br>
 2.No external libraries required for the basic version
+
+# Outputs
+## Chat Log Parsing
+![image](https://github.com/user-attachments/assets/57d0e22d-a01f-4575-b0fe-fa1b13e31360)
+## Message Statistics
+![image](https://github.com/user-attachments/assets/dbc78ed6-c1e7-4a83-917b-5d541aa240c6)
+## Keyword Analysis
+![image](https://github.com/user-attachments/assets/c3e8ef7b-6653-488e-8d66-b68d8dd603a5)
+## Generate Summary
+![image](https://github.com/user-attachments/assets/2c86e4c7-a65a-4f87-a298-d1c3f23b12a4)
