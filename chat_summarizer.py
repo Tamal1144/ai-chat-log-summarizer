@@ -48,14 +48,17 @@ def parse_chat_log(file_path):
     return user_messages, ai_messages
 
 
-def generate_statistics(user_messages, ai_messages):
+def generate_statistics(user_messages, ai_messages, print_output=True):
     user_count = len(user_messages)
     ai_count = len(ai_messages)
     total_count = user_count + ai_count
 
-    print(f"\nTotal Messages: {total_count}")
-    print(f"User Messages: {user_count}")
-    print(f"AI Messages: {ai_count}")
+    if print_output:
+        print(f"\nTotal Messages: {total_count}")
+        print(f"User Messages: {user_count}")
+        print(f"AI Messages: {ai_count}")
+
+    return total_count, user_count, ai_count
 
 def extract_keywords(messages, top_n=5):
     words = []
@@ -67,6 +70,19 @@ def extract_keywords(messages, top_n=5):
     most_common = frequency.most_common(top_n)  
     return most_common
 
+def generate_summary(user_messages, ai_messages, keywords):
+    total_messages, user_count, ai_count = generate_statistics(user_messages, ai_messages, print_output=False)
+    print(f"\n===== Chat Summary =====")
+    print(f"- The conversation had {total_messages} exchanges.")
+
+    if keywords:
+        top_keyword = keywords[:2]
+        common_topics= ', '.join([kw[0] for kw in keywords])
+        topics = ' '.join([kw[0] for kw in top_keyword])
+        print(f"- The user asked mainly about {topics}.")
+        print(f"- Most common keywords: {common_topics}.")
+    else:
+        print("- No significant keywords found.")
 
 # Main execution
 if __name__ == "__main__":
@@ -81,6 +97,7 @@ if __name__ == "__main__":
     for msg in ai_messages[:3]:  # Show first 3 AI messages
         print("- " + msg)
 
+    print("\n===== Message Statistics =====")
     generate_statistics(user_messages, ai_messages)
 
     print("\n===== Keyword Analysis =====")
@@ -90,3 +107,6 @@ if __name__ == "__main__":
     user_keywords = extract_keywords(user_messages)    
     for word, count in top_keywords:
         print(f"{word}: {count}")  
+
+    keywords= extract_keywords(all_messages)
+    generate_summary(user_messages, ai_messages, keywords)
