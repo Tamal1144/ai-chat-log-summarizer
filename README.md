@@ -36,7 +36,7 @@ Most common keywords:
 
  ## How to Run
 1. Clone the repository:
-   git clone https://github.com/Tamal1144/ai-chat-log-summarizer.git
+   git clone https://github.com/Tamal1144/ai-chat-log-summarizer.git </br>
    cd ai-chat-log-summarizer
 2. Make sure Python 3 is installed.
 3. Place your chat file as chat.txt in the root folder.
@@ -44,10 +44,10 @@ Most common keywords:
     python chat_summarizer.py
 
 ## Folder Structure
-├── chat.txt
-├── chat_summarizer.py
-└── README.md
+├── chat.txt </br>
+├── chat_summarizer.py </br>
+└── README.md </br>
 
 ## Requirements
-1.Python 3.x
+1.Python 3.x </br>
 2.No external libraries required for the basic version
