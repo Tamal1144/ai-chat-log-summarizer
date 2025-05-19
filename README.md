@@ -10,7 +10,7 @@ A Python-based tool to read `.txt` chat logs between a User and an AI, analyze t
 - Count message statistics
 - Extract top 5 most common keywords (excluding stop words)
 - Generate a clear text summary
-- Optional: Extendable for TF-IDF-based keyword analysis
+- Optional: Extendable for TF-IDF-based keyword analysis (Not Included here)
 
 ## Sample Input (chat.txt)
 User: Hello!</br>
